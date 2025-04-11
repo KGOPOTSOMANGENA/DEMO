@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Registration & Sign In</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Patient Registration Form</h2>
+        <form id="registrationForm">
+            <!-- Personal Information -->
+            <div class="form-group">
+                <label for="patientName">Full Name</label>
+                <input type="text" id="patientName" name="patientName" required>
+            </div>
+            <div class="form-group">
+                <label for="patientDOB">Date of Birth</label>
+                <input type="date" id="patientDOB" name="patientDOB" required>
+            </div>
+            <div class="form-group">
+                <label for="patientEmail">Email Address</label>
+                <input type="email" id="patientEmail" name="patientEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="patientPassword">Password</label>
+                <input type="password" id="patientPassword" name="patientPassword" required>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="form-group">
+                <label for="patientPhone">Phone Number</label>
+                <input type="tel" id="patientPhone" name="patientPhone" required>
+            </div>
+
+            <!-- Type of Service -->
+            <div class="form-group">
+                <label for="serviceType">Type of Service</label>
+                <select id="serviceType" name="serviceType" required>
+                    <option value="">Select a service</option>
+                    <option value="Consultation">Consultation</option>
+                    <option value="Collection">Collection</option>
+                </select>
+            </div>
+
+            <!-- Appointment -->
+            <div class="form-group">
+                <label for="appointmentDate">Preferred Appointment Date</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+
+            <!-- Emergency Contact -->
+            <div class="form-group">
+                <label for="emergencyContact">Emergency Contact</label>
+                <input type="text" id="emergencyContact" name="emergencyContact">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Registration</button>
+        </form>
+    </div>
+
+    <!-- Sign In Form -->
+    <div class="container">
+        <h2>Sign In</h2>
+        <form id="signInForm">
+            <div class="form-group">
+                <label for="signInEmail">Email Address</label>
+                <input type="email" id="signInEmail" name="signInEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="signInPassword">Password</label>
+                <input type="password" id="signInPassword" name="signInPassword" required>
+            </div>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
+
+    <script>
+        // Prevent past dates from being selected
+        document.addEventListener("DOMContentLoaded", function() {
+            let today = new Date().toISOString().split("T")[0];
+            document.getElementById("appointmentDate").setAttribute("min", today);
+        });
+    </script>
+</body>
+</html>
